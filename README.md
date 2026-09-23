@@ -65,7 +65,7 @@ This custom node requires the `ultralytics` Python package.
 If you are using the Python environment already used by ComfyUI:
 
 ```bash
-python -m pip install -r ComfyUI-H3-FaceAutoBypass/requirements.txt
+python -m pip install -r custom_nodes/ComfyUI-H3-FaceAutoBypass/requirements.txt
 ```
 
 If your ComfyUI installation uses a dedicated virtual environment, run the command using that environment's Python executable.
