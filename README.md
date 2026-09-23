@@ -48,24 +48,63 @@ Important: person detection alone is not enough to start FaceRefine safely, beca
 
 ## Installation
 
+### 1. Clone the repository
+
 Open a terminal in your ComfyUI `custom_nodes` directory:
 
 ```bash
 git clone https://github.com/fukkun2705-commits/ComfyUI-H3-FaceAutoBypass.git
 ```
 
-Then restart ComfyUI.
+---
 
-## Related Project
+### 2. Install Python dependencies
 
-This custom node is intended to be used together with:
+This custom node requires the `ultralytics` Python package.
 
-```text
-ComfyUI-H3-FaceRefine
+If you are using the Python environment already used by ComfyUI:
+
+```bash
+python -m pip install -r ComfyUI-H3-FaceAutoBypass/requirements.txt
 ```
 
-Repository:
+If your ComfyUI installation uses a dedicated virtual environment, run the command using that environment's Python executable.
+
+Example on Windows:
+
+```bat
+<ComfyUI Folder>\venv\Scripts\python.exe -m pip install -r <ComfyUI Folder>\custom_nodes\ComfyUI-H3-FaceAutoBypass\requirements.txt
+```
+
+---
+
+### 3. Install detector models
+
+The following detector models are required:
 
 ```text
-https://github.com/Carasibana/ComfyUI-H3-FaceRefine
+face_yolov8m.pt
+person_yolov8m-seg.pt
 ```
+
+Place them in:
+
+```text
+ComfyUI/models/ultralytics/bbox/face_yolov8m.pt
+ComfyUI/models/ultralytics/segm/person_yolov8m-seg.pt
+```
+
+If you use Stability Matrix with a shared Models folder, the detector models may instead be stored under:
+
+```text
+Data/Models/Ultralytics/bbox/face_yolov8m.pt
+Data/Models/Ultralytics/segm/person_yolov8m-seg.pt
+```
+
+---
+
+### 4. Restart ComfyUI
+
+Restart ComfyUI after installation.
+
+If installation is successful, `ComfyUI-H3-FaceAutoBypass` should load without `IMPORT FAILED` in the startup log.
